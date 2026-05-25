@@ -98,6 +98,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Leadership",
       photo: "/assets/team/uday-bhanu-sharma.png",
+      instagram: "ubhanu06",
       bio: "Leading the club vision, culture, and overall direction for the tenure.",
     },
     {
@@ -106,6 +107,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Administration",
       photo: "/assets/team/tejas-bhadauria.png",
+      instagram: "tejasbhadauriaa",
       bio: "Driving coordination, execution, club communication, and flagship planning.",
     },
     {
@@ -114,6 +116,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Strategy",
       photo: "/assets/team/adit-tanted.png",
+      instagram: "adit_tanted_22",
       bio: "Supporting leadership, planning, and smooth functioning of the club.",
     },
     {
@@ -122,6 +125,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Finance",
       photo: "/assets/team/shhorya-agarwal.png",
+      instagram: "shhorya_agarwal",
       bio: "Managing budgets, records, resources, and financial coordination.",
     },
     {
@@ -130,6 +134,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Events",
       photo: "/assets/team/aditya-ranjan.png",
+      instagram: "adityaranjan_fr",
       bio: "Planning and executing performances, showcases, and live club experiences.",
     },
     {
@@ -138,6 +143,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Promotions",
       photo: "/assets/team/agrima-dwivedi.png",
+      instagram: "agrimadw",
       bio: "Handling campaigns, creative visibility, and promotional presence.",
     },
     {
@@ -146,6 +152,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Public Relations",
       photo: "/assets/team/divyansh-kaushal.png",
+      instagram: "divyansh__kaushal",
       bio: "Managing outreach, communication, collaborations, and external relations.",
     },
   ],
@@ -157,6 +164,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Leadership",
       photo: "/assets/team/sourya-kvs.png",
+      instagram: "sourya_162",
       bio: "Led the club vision, direction, and cultural identity for the tenure.",
     },
     {
@@ -165,6 +173,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Administration",
       photo: "/assets/team/rochis-sharma.png",
+      instagram: "__rochis__",
       bio: "Managed coordination, execution, and internal club functioning.",
     },
     {
@@ -173,6 +182,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Strategy",
       photo: "/assets/team/rohitansh-srivastava.png",
+      instagram: "rohitansh_",
       bio: "Supported leadership, planning, and major event execution.",
     },
     {
@@ -181,6 +191,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Finance",
       photo: "/assets/team/yashvit-kumar.png",
+      instagram: "blobfish_exe",
       bio: "Handled budgets, resources, and finance-related coordination.",
     },
     {
@@ -189,6 +200,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Events",
       photo: "/assets/team/aanan-chopra.png",
+      instagram: "aananchopra",
       bio: "Managed event planning, execution, and performance flow.",
     },
     {
@@ -197,7 +209,8 @@ const teamByTenure = {
       group: "Core",
       domain: "Promotions",
       photo: "/assets/team/saumya-chauhan.png",
-      bio: "Handled promotional campaigns, visibility, and creative communication.",
+      instagram: "_saumyachauhan_",
+      bio: "Handled promotional campaigns, visibility, Design and creative communication.",
     },
     {
       name: "Saarang Agarwal",
@@ -205,6 +218,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Public Relations",
       photo: "/assets/team/saarang-agarwal.png",
+      instagram: "saarang_agarwal_",
       bio: "Managed collaborations, outreach, and public communication.",
     },
   ],
@@ -216,6 +230,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Leadership",
       photo: "/assets/team/2024-president.png",
+      instagram: "",
       bio: "Add details for this tenure.",
     },
     {
@@ -224,6 +239,7 @@ const teamByTenure = {
       group: "Core",
       domain: "Administration",
       photo: "/assets/team/2024-general-secretary.png",
+      instagram: "",
       bio: "Add details for this tenure.",
     },
   ],
@@ -529,10 +545,7 @@ function About() {
             From jam room sessions to flagship stages, TMC brings together people who love vocals,
             guitars, keys, drums, production, songwriting, sound design, and event execution.
           </p>
-          <p>
-            The website is designed to feel like a calm backstage pass: dark, musical, dynamic, and
-            clean without being too bright.
-          </p>
+
         </div>
       </div>
 
@@ -739,35 +752,116 @@ function Gallery() {
     </section>
   );
 }
+function InstagramIcon({ size = 22 }) {
+  return (
+      <svg
+          width={size}
+          height={size}
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+      >
+        <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="5"
+            stroke="currentColor"
+            strokeWidth="2"
+        />
+        <circle
+            cx="12"
+            cy="12"
+            r="4"
+            stroke="currentColor"
+            strokeWidth="2"
+        />
+        <circle cx="17.5" cy="6.5" r="1.3" fill="currentColor" />
+      </svg>
+  );
+}
 
 function TeamCard({ member }) {
+  const [flipped, setFlipped] = useState(false);
+
+  const instagramHandle = member.instagram?.replace("@", "");
+  const instagramUrl = instagramHandle
+      ? `https://www.instagram.com/${instagramHandle}/`
+      : null;
+
   return (
-    <motion.article
-      className="team-card"
-      whileHover={{ y: -8 }}
-      transition={{ type: "spring", stiffness: 260, damping: 18 }}
-    >
-      <div className="team-photo">
-        <img
-          src={member.photo}
-          alt={member.name}
-          onError={(event) => {
-            event.currentTarget.style.display = "none";
-            event.currentTarget.nextElementSibling.style.display = "grid";
-          }}
-        />
-        <div className="avatar-fallback" style={{ display: "none" }}>
-          {initials(member.name)}
+      <div
+          className={`team-card flip-card ${flipped ? "is-flipped" : ""}`}
+          onClick={() => setFlipped((current) => !current)}
+      >
+        <div className="team-card-inner">
+          <div className="team-card-face team-card-front">
+            <div
+                className="team-photo"
+                style={{
+                  "--photo-position": member.photoPosition || "center 18%",
+                }}
+            >
+              <img
+                  src={member.photo}
+                  alt={member.name}
+                  onError={(event) => {
+                    event.currentTarget.style.display = "none";
+                    event.currentTarget.nextElementSibling.style.display = "grid";
+                  }}
+              />
+
+              <div className="avatar-fallback" style={{ display: "none" }}>
+                {initials(member.name)}
+              </div>
+            </div>
+
+            <div className="team-info">
+              <span>{member.group}</span>
+              <h3>{member.name}</h3>
+              <p className="role">{member.role}</p>
+              <p>{member.bio}</p>
+              <small>{member.domain}</small>
+            </div>
+          </div>
+
+          <div className="team-card-face team-card-back">
+            <div className="insta-back-content">
+              <div className="insta-orb">
+                <InstagramIcon size={46} />
+              </div>
+
+              <p className="insta-label">Connect with</p>
+              <h3>{member.name}</h3>
+              <p className="insta-role">{member.role}</p>
+
+              {instagramUrl ? (
+                  <a
+                      className="instagram-link"
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                  >
+                    <span className="instagram-icon">
+  <InstagramIcon size={20} />
+</span>
+                    Instagram
+                    <small>@{instagramHandle}</small>
+                  </a>
+              ) : (
+                  <div className="instagram-link disabled">
+                    <span className="instagram-icon">◎</span>
+                    Instagram not added
+                  </div>
+              )}
+
+              <p className="flip-hint">Click card again to return</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="team-info">
-        <span>{member.group}</span>
-        <h3>{member.name}</h3>
-        <p className="role">{member.role}</p>
-        <p>{member.bio}</p>
-        <small>{member.domain}</small>
-      </div>
-    </motion.article>
   );
 }
 
