@@ -90,64 +90,144 @@ const galleryItems = [
   { title: "Crowd Moments", category: "Concert", image: "/assets/gallery/gallery-6.jpg" },
 ];
 
-const team = [
-  {
-    name: "Tejas Bhadauria",
-    role: "General Secretary",
-    group: "Core",
-    domain: "Leadership",
-    photo: "/assets/team/tejas.jpg",
-    bio: "Driving the club vision, live events, jam room culture, and collaborations.",
-  },
-  {
-    name: "Add Name",
-    role: "Joint Secretary",
-    group: "Core",
-    domain: "Operations",
-    photo: "/assets/team/core-2.jpg",
-    bio: "Replace this with your actual core member details.",
-  },
-  {
-    name: "Add Name",
-    role: "Treasurer",
-    group: "Core",
-    domain: "Finance",
-    photo: "/assets/team/core-3.jpg",
-    bio: "Handles budgets, sponsorship coordination, and event spending records.",
-  },
-  {
-    name: "Add Name",
-    role: "Jam Room Coordinator",
-    group: "Core",
-    domain: "Jam Room",
-    photo: "/assets/team/core-4.jpg",
-    bio: "Manages slots, practice flow, equipment discipline, and member coordination.",
-  },
-  {
-    name: "Add Name",
-    role: "Junior Core",
-    group: "Junior Core",
-    domain: "Events",
-    photo: "/assets/team/jc-1.jpg",
-    bio: "Supports planning, artist coordination, and execution on event days.",
-  },
-  {
-    name: "Add Name",
-    role: "Junior Core",
-    group: "Junior Core",
-    domain: "Design",
-    photo: "/assets/team/jc-2.jpg",
-    bio: "Supports posters, reels, gallery documentation, and creative campaigns.",
-  },
-  {
-    name: "Add Name",
-    role: "Junior Core",
-    group: "Junior Core",
-    domain: "Corporate",
-    photo: "/assets/team/jc-3.jpg",
-    bio: "Supports outreach, partnerships, sponsorships, and brand communication.",
-  },
-];
+const teamByTenure = {
+  "2026-27": [
+    {
+      name: "Uday Bhanu Sharma",
+      role: "President",
+      group: "Core",
+      domain: "Leadership",
+      photo: "/assets/team/uday-bhanu-sharma.png",
+      bio: "Leading the club vision, culture, and overall direction for the tenure.",
+    },
+    {
+      name: "Tejas Bhadauria",
+      role: "General Secretary",
+      group: "Core",
+      domain: "Administration",
+      photo: "/assets/team/tejas-bhadauria.png",
+      bio: "Driving coordination, execution, club communication, and flagship planning.",
+    },
+    {
+      name: "Adit Tanted",
+      role: "Vice President",
+      group: "Core",
+      domain: "Strategy",
+      photo: "/assets/team/adit-tanted.png",
+      bio: "Supporting leadership, planning, and smooth functioning of the club.",
+    },
+    {
+      name: "Shhorya Agarwal",
+      role: "Treasurer",
+      group: "Core",
+      domain: "Finance",
+      photo: "/assets/team/shhorya-agarwal.png",
+      bio: "Managing budgets, records, resources, and financial coordination.",
+    },
+    {
+      name: "Aditya Ranjan",
+      role: "Head of Events",
+      group: "Core",
+      domain: "Events",
+      photo: "/assets/team/aditya-ranjan.png",
+      bio: "Planning and executing performances, showcases, and live club experiences.",
+    },
+    {
+      name: "Agrima Dwivedi",
+      role: "Head of Promotions",
+      group: "Core",
+      domain: "Promotions",
+      photo: "/assets/team/agrima-dwivedi.png",
+      bio: "Handling campaigns, creative visibility, and promotional presence.",
+    },
+    {
+      name: "Divyansh Kaushal",
+      role: "Head of Public Relations",
+      group: "Core",
+      domain: "Public Relations",
+      photo: "/assets/team/divyansh-kaushal.png",
+      bio: "Managing outreach, communication, collaborations, and external relations.",
+    },
+  ],
+
+  "2025-26": [
+    {
+      name: "Sourya KVS",
+      role: "President",
+      group: "Core",
+      domain: "Leadership",
+      photo: "/assets/team/sourya-kvs.png",
+      bio: "Led the club vision, direction, and cultural identity for the tenure.",
+    },
+    {
+      name: "Rochis Sharma",
+      role: "General Secretary",
+      group: "Core",
+      domain: "Administration",
+      photo: "/assets/team/rochis-sharma.png",
+      bio: "Managed coordination, execution, and internal club functioning.",
+    },
+    {
+      name: "Rohitansh Srivastava",
+      role: "Vice President",
+      group: "Core",
+      domain: "Strategy",
+      photo: "/assets/team/rohitansh-srivastava.png",
+      bio: "Supported leadership, planning, and major event execution.",
+    },
+    {
+      name: "Yashvit Kumar",
+      role: "Treasurer",
+      group: "Core",
+      domain: "Finance",
+      photo: "/assets/team/yashvit-kumar.png",
+      bio: "Handled budgets, resources, and finance-related coordination.",
+    },
+    {
+      name: "Aanan Chopra",
+      role: "Head of Events",
+      group: "Core",
+      domain: "Events",
+      photo: "/assets/team/aanan-chopra.png",
+      bio: "Managed event planning, execution, and performance flow.",
+    },
+    {
+      name: "Saumya Chauhan",
+      role: "Head of Promotions",
+      group: "Core",
+      domain: "Promotions",
+      photo: "/assets/team/saumya-chauhan.png",
+      bio: "Handled promotional campaigns, visibility, and creative communication.",
+    },
+    {
+      name: "Saarang Agarwal",
+      role: "Head of Public Relations",
+      group: "Core",
+      domain: "Public Relations",
+      photo: "/assets/team/saarang-agarwal.png",
+      bio: "Managed collaborations, outreach, and public communication.",
+    },
+  ],
+
+  "2024-23": [
+    {
+      name: "Add Name",
+      role: "President",
+      group: "Core",
+      domain: "Leadership",
+      photo: "/assets/team/2024-president.png",
+      bio: "Add details for this tenure.",
+    },
+    {
+      name: "Add Name",
+      role: "General Secretary",
+      group: "Core",
+      domain: "Administration",
+      photo: "/assets/team/2024-general-secretary.png",
+      bio: "Add details for this tenure.",
+    },
+  ],
+};
 
 const navLinks = ["Home", "About", "Events", "Gallery", "Team", "Join"];
 
@@ -692,46 +772,95 @@ function TeamCard({ member }) {
 }
 
 function Team() {
+  const tenures = Object.keys(teamByTenure);
+
+  const [activeTenure, setActiveTenure] = useState(tenures[0]);
   const [group, setGroup] = useState("All");
-  const groups = ["All", ...Array.from(new Set(team.map((member) => member.group)))];
-  const filtered = group === "All" ? team : team.filter((member) => member.group === group);
+
+  const currentTeam = teamByTenure[activeTenure];
+
+  const groups = [
+    "All",
+    ...Array.from(new Set(currentTeam.map((member) => member.group))),
+  ];
+
+  const filtered =
+      group === "All"
+          ? currentTeam
+          : currentTeam.filter((member) => member.group === group);
+
+  const changeTenure = (tenure) => {
+    setActiveTenure(tenure);
+    setGroup("All");
+  };
 
   return (
-    <section id="team" className="section">
-      <SectionTitle
-        eyebrow="Team"
-        title="Core and Junior Core."
-        text="Photos, names, designations, domains, and short bios are controlled from one array in App.jsx."
-      />
+      <section id="team" className="section">
+        <SectionTitle
+            eyebrow="Team"
+            title="The people behind the sound."
+            text="Explore the Core and Junior Core teams across different tenures of The Music Club."
+        />
 
-      <div className="chip-row spaced">
-        {groups.map((item) => (
-          <button
-            className={group === item ? "chip active" : "chip"}
-            key={item}
-            onClick={() => setGroup(item)}
-          >
-            {item}
-          </button>
-        ))}
-      </div>
-
-      <motion.div className="team-grid" layout>
-        <AnimatePresence mode="popLayout">
-          {filtered.map((member) => (
-            <motion.div
-              key={`${member.name}-${member.role}-${member.domain}`}
-              layout
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 14 }}
-            >
-              <TeamCard member={member} />
-            </motion.div>
+        <div className="tenure-tabs">
+          {tenures.map((tenure) => (
+              <button
+                  key={tenure}
+                  className={activeTenure === tenure ? "tenure-tab active" : "tenure-tab"}
+                  onClick={() => changeTenure(tenure)}
+              >
+                {tenure}
+              </button>
           ))}
+        </div>
+
+        <motion.div
+            key={activeTenure}
+            className="tenure-heading"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+        >
+          <span>Tenure</span>
+          <h3>{activeTenure}</h3>
+        </motion.div>
+
+        <div className="chip-row spaced">
+          {groups.map((item) => (
+              <button
+                  className={group === item ? "chip active" : "chip"}
+                  key={item}
+                  onClick={() => setGroup(item)}
+              >
+                {item}
+              </button>
+          ))}
+        </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+              key={`${activeTenure}-${group}`}
+              className="team-grid"
+              initial={{ opacity: 0, y: 28, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -24, scale: 0.98 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              layout
+          >
+            {filtered.map((member, index) => (
+                <motion.div
+                    key={`${activeTenure}-${member.name}-${member.role}-${index}`}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.08, duration: 0.4 }}
+                    layout
+                >
+                  <TeamCard member={member} />
+                </motion.div>
+            ))}
+          </motion.div>
         </AnimatePresence>
-      </motion.div>
-    </section>
+      </section>
   );
 }
 
