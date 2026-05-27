@@ -33,54 +33,271 @@ const stats = [
   { value: "1", label: "Shared stage" },
 ];
 
-const events = [
+ const eventSections = [
   {
-    title: "TMC Live",
-    tag: "Flagship",
-    date: "March 2026",
-    venue: "MUJ Campus",
+    id: "ex-fest-competitions",
+    title: "Ex Fest Competitions",
+    subtitle: "Stages beyond campus",
     description:
-      "Our biggest annual celebration of bands, solos, duos, acoustic sets, and everything that makes campus music feel alive.",
-    icon: Guitar,
+        "TMC artists representing the club in external fests, battle of bands, solo competitions, and inter-college showcases.",
+    cover: "/assets/events/ex-fest-cover.jpg",
+    events: [
+      {
+        title: "Requiem",
+        date: "Onerios",
+        venue: "Vasanti Pai Auditorium",
+        description:
+            "A high-energy battle of bands experience where bands bring their best arrangements, stage presence, and live chemistry.",
+        photos: [
+          "/assets/events/requiem-1.jpg",
+          "/assets/events/requiem-2.jpg",
+          "/assets/events/requiem-3.jpg",
+        ],
+      },
+      {
+        title: "Mood Indigo Selections",
+        date: "External Fest",
+        venue: "IIT Bombay",
+        description:
+            "A competitive platform for selected performers and bands to represent their sound outside campus.",
+        photos: [
+          "/assets/events/mood-indigo-1.jpg",
+          "/assets/events/mood-indigo-2.jpg",
+          "/assets/events/mood-indigo-3.jpg",
+        ],
+      },
+      {
+        title: "Battle of Bands",
+        date: "External Competitions",
+        venue: "Various Colleges",
+        description:
+            "TMC bands competing across college festivals with original arrangements, covers, and stage-ready sets.",
+        photos: [
+          "/assets/events/battle-1.jpg",
+          "/assets/events/battle-2.jpg",
+          "/assets/events/battle-3.jpg",
+        ],
+      },
+    ],
   },
+
+   {
+     id: "in-house-events",
+     title: "In House Events",
+     subtitle: "Our own campus sound",
+     description:
+         "Events curated, hosted, and executed by The Music Club for the MUJ community.",
+     cover: "/assets/events/in-house-cover.jpg",
+     events: [
+       {
+         title: "TMC Live 8.0",
+         date: "Flagship Event",
+         venue: "MUJ Campus",
+
+         description:
+             "The flagship event of The Music Club, bringing together bands, solo acts, acoustic sets, full-stage performances, and the biggest TMC energy of the year.",
+         cover: "/assets/events/in-house-cover.jpg",
+         photos: [
+           "/assets/events/tmc-live-1.webp",
+           "/assets/events/tmc-live-2.webp",
+           "/assets/events/tmc-live-3.webp",
+           "/assets/events/tmc-live-4.webp",
+           "/assets/events/tmc-live-5.webp",
+           "/assets/events/tmc-live-6.webp",
+           "/assets/events/tmc-live-7.webp",
+           "/assets/events/tmc-live-8.webp",
+           "/assets/events/tmc-live-9.webp",
+           "/assets/events/tmc-live-10.webp",
+           "/assets/events/tmc-live-11.webp",
+         ],
+       },
+       {
+         title: "Guitar Workshop",
+         date: "Workshop",
+         venue: "Jam Room / Campus",
+
+         description:
+             "A learning-based session for beginners and intermediate guitarists covering basics, techniques, chords, rhythm, and performance confidence.",
+         cover: "/assets/events/guitar-workshop-cover.jpg",
+         photos: [
+           "/assets/events/guitar-workshop-1.webp",
+           "/assets/events/guitar-workshop-2.webp",
+           "/assets/events/guitar-workshop-3.webp",
+           "/assets/events/guitar-workshop-4.webp",
+           "/assets/events/guitar-workshop-5.webp",
+           "/assets/events/guitar-workshop-6.webp",
+           "/assets/events/guitar-workshop-7.webp",
+           "/assets/events/guitar-workshop-8.webp",
+           "/assets/events/guitar-workshop-9.webp",
+         ],
+       },
+       {
+         title: "Echoes",
+         date: "In-House Event",
+         venue: "MUJ Campus",
+         description:
+             "A music-driven event built around performances, rehearsals, crowd energy, and the emotional soundscape of campus life.",
+         cover: "/assets/events/echoes-cover.jpg",
+         photos: [
+           "/assets/events/echoes-1.webp",
+           "/assets/events/echoes-2.webp",
+           "/assets/events/echoes-3.webp",
+           "/assets/events/echoes-4.webp",
+           "/assets/events/echoes-5.webp",
+           "/assets/events/echoes-6.webp",
+           "/assets/events/echoes-7.webp",
+           "/assets/events/echoes-8.webp",
+           "/assets/events/echoes-9.webp",
+           "/assets/events/echoes-10.webp",
+           "/assets/events/echoes-11.webp",
+
+         ],
+       },
+       {
+         title: "Techideate",
+         date: "Campus Event",
+         venue: "MUJ Campus",
+         cover: "/assets/events/techideate-cover.jpg",
+         description:
+             "A collaborative campus event where TMC contributed through music, performances, and event energy.",
+         photos: [
+           "/assets/events/techideate-1.webp",
+           "/assets/events/techideate-2.webp",
+           "/assets/events/techideate-3.webp",
+           "/assets/events/techideate-4.webp",
+           "/assets/events/techideate-5.webp",
+           "/assets/events/techideate-6.webp",
+           "/assets/events/techideate-7.webp",
+           "/assets/events/techideate-8.webp",
+           "/assets/events/techideate-9.webp",
+         ],
+       },
+       {
+         title: "Requiem",
+         date: "Battle of Bands",
+         venue: "Vasanti Pai Auditorium/Main-Stage Onerios",
+         cover: "/assets/events/requiem-cover.jpg",
+         description:
+             "A powerful battle of bands experience where artists bring live arrangements, stage presence, and competitive musical energy.",
+         photos: [
+           "/assets/events/requiem-1.webp",
+           "/assets/events/requiem-2.webp",
+           "/assets/events/requiem-3.webp",
+           "/assets/events/requiem-4.webp",
+           "/assets/events/requiem-5.webp",
+           "/assets/events/requiem-6.webp",
+           "/assets/events/requiem-7.webp",
+           "/assets/events/requiem-8.webp",
+           "/assets/events/requiem-9.webp",
+           "/assets/events/requiem-10.webp",
+         ],
+       },
+       {
+         title: "Octaves",
+         date: "Music Event",
+         venue: "MUJ Campus",
+         cover: "/assets/events/octaves-cover.jpg",
+         description:
+             "A TMC event celebrating vocals, instruments, harmonies, and the many layers that make campus music come alive.",
+         photos: [
+           "/assets/events/octaves-1.webp",
+           "/assets/events/octaves-2.webp",
+           "/assets/events/octaves-3.webp",
+           "/assets/events/octaves-4.webp",
+           "/assets/events/octaves-5.webp",
+           "/assets/events/octaves-6.webp",
+           "/assets/events/octaves-7.webp",
+           "/assets/events/octaves-8.webp",
+           "/assets/events/octaves-9.webp",
+           "/assets/events/octaves-10.webp",
+         ],
+       },
+       {
+         title: "GHS Carnival",
+         date: "Carnival Event",
+         venue: "Good Host Spaces",
+         cover: "/assets/events/ghs-carnival-cover.jpg",
+         description:
+             "A lively carnival-style event where TMC brought music, performances, and campus entertainment to the GHS crowd.",
+         photos: [
+           "/assets/events/ghs-carnival-1.webp",
+           "/assets/events/ghs-carnival-2.webp",
+           "/assets/events/ghs-carnival-3.webp",
+           "/assets/events/ghs-carnival-4.webp",
+           "/assets/events/ghs-carnival-5.webp",
+           "/assets/events/ghs-carnival-6.webp",
+           "/assets/events/ghs-carnival-7.webp",
+           "/assets/events/ghs-carnival-8.webp",
+           "/assets/events/ghs-carnival-9.webp",
+         ],
+       },
+       {
+         title: "Daan Utsav RAC",
+         date: "Community Event",
+         venue: "MUJ Campus",
+         cover: "/assets/events/daan-utsav-cover.jpg",
+         description:
+             "A community-oriented event where music became a part of celebration, contribution, and collective campus spirit.",
+         photos: [
+           "/assets/events/daan-utsav-1.webp",
+           "/assets/events/daan-utsav-2.webp",
+           "/assets/events/daan-utsav-3.webp",
+           "/assets/events/daan-utsav-4.webp",
+           "/assets/events/daan-utsav-5.webp",
+           "/assets/events/daan-utsav-6.webp",
+
+
+         ],
+       },
+     ],
+   },
   {
-    title: "Spotlight",
-    tag: "Online",
-    date: "Rolling submissions",
-    venue: "Instagram",
+    id: "original-compositions",
+    title: "Original Compositions",
+    subtitle: "Music made by us",
     description:
-      "A digital showcase where selected covers and originals from students are featured on the official club page.",
-    icon: Camera,
-  },
-  {
-    title: "Unplugged Nights",
-    tag: "Acoustic",
-    date: "Every semester",
-    venue: "Open-air campus spots",
-    description:
-      "Soft lights, raw vocals, and acoustic sessions built for people who love music without the noise.",
-    icon: Headphones,
-  },
-  {
-    title: "Jam Room Sessions",
-    tag: "Internal",
-    date: "Weekly",
-    venue: "Recreational Room",
-    description:
-      "Practice slots, band building, collaborative writing, instrument exploration, and late-evening rehearsals.",
-    icon: Disc3,
-  },
-  {
-    title: "Battle of Bands",
-    tag: "Competition",
-    date: "Coming soon",
-    venue: "Auditorium",
-    description:
-      "A high-energy stage for bands to prove their sound, presence, arrangement, and chemistry.",
-    icon: Star,
+        "A space for original songs, compositions, lyrics, arrangements, and independent music created by TMC artists.",
+    cover: "/assets/events/originals-cover.jpg",
+    events: [
+      {
+        title: "Originals Night",
+        date: "Coming Soon",
+        venue: "TMC Stage",
+        description:
+            "A dedicated showcase for original songs written, composed, produced, or arranged by members of The Music Club.",
+        photos: [
+          "/assets/events/originals-night-1.jpg",
+          "/assets/events/originals-night-2.jpg",
+          "/assets/events/originals-night-3.jpg",
+        ],
+      },
+      {
+        title: "Songwriting Circle",
+        date: "Internal Session",
+        venue: "Jam Room",
+        description:
+            "A collaborative session where lyricists, vocalists, instrumentalists, and producers build songs from scratch.",
+        photos: [
+          "/assets/events/songwriting-1.jpg",
+          "/assets/events/songwriting-2.jpg",
+          "/assets/events/songwriting-3.jpg",
+        ],
+      },
+      {
+        title: "Studio Diaries",
+        date: "Original Music",
+        venue: "Online / Jam Room",
+        description:
+            "Behind-the-scenes stories of TMC artists creating demos, acoustic versions, and independent releases.",
+        photos: [
+          "/assets/events/studio-1.jpg",
+          "/assets/events/studio-2.jpg",
+          "/assets/events/studio-3.jpg",
+        ],
+      },
+    ],
   },
 ];
-
 const galleryItems = [
   { title: "Acoustic Circle", category: "Live", image: "/assets/gallery/gallery-1.jpg" },
   { title: "Band Rehearsal", category: "Jam Room", image: "/assets/gallery/gallery-2.jpg" },
@@ -245,7 +462,7 @@ const teamByTenure = {
   ],
 };
 
-const navLinks = ["Home", "About", "Events", "Gallery", "Team", "Join"];
+const navLinks = ["Home", "About", "Events", "Team", "Join"];
 
 function initials(name) {
   return name
@@ -327,7 +544,14 @@ function Navbar() {
   const [open, setOpen] = useState(false);
 
   const goTo = (section) => {
-    document.getElementById(section.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    if (section === "Events") {
+      window.dispatchEvent(new Event("reset-events-section"));
+    }
+
+    document
+        .getElementById(section.toLowerCase())
+        ?.scrollIntoView({ behavior: "smooth" });
+
     setOpen(false);
   };
 
@@ -568,88 +792,378 @@ function About() {
   );
 }
 
-function Events() {
-  const tags = ["All", ...Array.from(new Set(events.map((event) => event.tag)))];
-  const [activeTag, setActiveTag] = useState("All");
-  const [query, setQuery] = useState("");
-
-  const filteredEvents = useMemo(() => {
-    return events.filter((event) => {
-      const matchesTag = activeTag === "All" || event.tag === activeTag;
-      const searchText = `${event.title} ${event.tag} ${event.date} ${event.venue} ${event.description}`.toLowerCase();
-      return matchesTag && searchText.includes(query.toLowerCase());
-    });
-  }, [activeTag, query]);
-
+function EventImage({ src, title, onClick }) {
   return (
-    <section id="events" className="section">
-      <SectionTitle
-        eyebrow="Events"
-        title="Stages, sessions, showcases."
-        text="Search and filter through the kinds of experiences TMC creates every year."
-      />
-
-      <div className="toolbar">
-        <label className="search-box">
-          <Search size={18} />
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search events..."
-          />
-        </label>
-
-        <div className="chip-row">
-          {tags.map((tag) => (
-            <button
-              key={tag}
-              className={activeTag === tag ? "chip active" : "chip"}
-              onClick={() => setActiveTag(tag)}
-            >
-              {tag}
-            </button>
-          ))}
+      <div
+          className={`event-photo-box ${onClick ? "event-photo-clickable" : ""}`}
+          onClick={onClick}
+          role={onClick ? "button" : undefined}
+          tabIndex={onClick ? 0 : undefined}
+          onKeyDown={(event) => {
+            if (onClick && event.key === "Enter") {
+              onClick();
+            }
+          }}
+      >
+        <img
+            src={src}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            onError={(event) => {
+              event.currentTarget.style.display = "none";
+              event.currentTarget.nextElementSibling.style.display = "grid";
+            }}
+        />
+        <div className="event-photo-fallback" style={{ display: "none" }}>
+          <Music2 size={34} />
         </div>
       </div>
-
-      <motion.div className="event-grid" layout>
-        <AnimatePresence mode="popLayout">
-          {filteredEvents.map((event) => {
-            const Icon = event.icon;
-            return (
-              <motion.article
-                layout
-                className="event-card"
-                key={event.title}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-              >
-                <div className="event-icon">
-                  <Icon size={24} />
-                </div>
-                <span className="tag">{event.tag}</span>
-                <h3>{event.title}</h3>
-                <p>{event.description}</p>
-                <div className="event-meta">
-                  <span>{event.date}</span>
-                  <span>{event.venue}</span>
-                </div>
-              </motion.article>
-            );
-          })}
-        </AnimatePresence>
-      </motion.div>
-    </section>
   );
 }
+function Events() {
+  const [activeSection, setActiveSection] = useState(null);
+  const [activeEvent, setActiveEvent] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [visiblePhotoCount, setVisiblePhotoCount] = useState(3);
 
+  const eventsRef = useRef(null);
+
+  const openSection = (section) => {
+    setActiveSection(section);
+    setActiveEvent(null);
+  };
+
+  const openEvent = (eventItem) => {
+    setActiveEvent(eventItem);
+    setVisiblePhotoCount(6);
+
+    setTimeout(() => {
+      document
+          .getElementById("events")
+          ?.scrollIntoView({behavior: "smooth", block: "start"});
+    }, 100);
+  };
+
+  const backToCategories = () => {
+    setActiveSection(null);
+    setActiveEvent(null);
+  };
+
+  const backToSection = () => {
+    setActiveEvent(null);
+  };
+
+  const openPhoto = (photos, index, titlePrefix) => {
+    setSelectedPhoto({
+      photos,
+      index,
+      titlePrefix,
+    });
+  };
+
+  const closePhoto = () => {
+    setSelectedPhoto(null);
+  };
+
+  const showPreviousPhoto = (event) => {
+    event.stopPropagation();
+
+    setSelectedPhoto((current) => {
+      if (!current) return current;
+
+      return {
+        ...current,
+        index:
+            current.index === 0
+                ? current.photos.length - 1
+                : current.index - 1,
+      };
+    });
+  };
+
+  const showNextPhoto = (event) => {
+    event.stopPropagation();
+
+    setSelectedPhoto((current) => {
+      if (!current) return current;
+
+      return {
+        ...current,
+        index:
+            current.index === current.photos.length - 1
+                ? 0
+                : current.index + 1,
+      };
+    });
+  };
+
+  useEffect(() => {
+    const resetEvents = () => {
+      setActiveSection(null);
+      setActiveEvent(null);
+      setSelectedPhoto(null);
+    };
+
+    window.addEventListener("reset-events-section", resetEvents);
+
+    return () => {
+      window.removeEventListener("reset-events-section", resetEvents);
+    };
+  }, []);
+
+  useEffect(() => {
+    const element = eventsRef.current;
+    if (!element) return;
+
+    let hasEnteredEventsSection = false;
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            hasEnteredEventsSection = true;
+          }
+
+          if (hasEnteredEventsSection && !entry.isIntersecting) {
+            setActiveSection(null);
+            setActiveEvent(null);
+            setSelectedPhoto(null);
+          }
+        },
+        {
+          threshold: 0.08,
+        }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+      <section id="events" className="section" ref={eventsRef}>
+        <SectionTitle
+            eyebrow="Events"
+            title="Every sound has a stage."
+            text="Explore TMC through ex-fest competitions, in-house events, and original compositions."
+        />
+
+        <AnimatePresence mode="wait">
+          {!activeSection && !activeEvent && (
+              <motion.div
+                  key="event-categories"
+                  className="event-section-grid"
+                  initial={{opacity: 0, y: 26}}
+                  animate={{opacity: 1, y: 0}}
+                  exit={{opacity: 0, y: -24}}
+                  transition={{duration: 0.45}}
+              >
+                {eventSections.map((section, index) => (
+                    <motion.button
+                        className="event-category-card"
+                        key={section.id}
+                        onClick={() => openSection(section)}
+                        initial={{opacity: 0, y: 24}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true}}
+                        transition={{delay: index * 0.08}}
+                    >
+                      <EventImage src={section.cover} title={section.title}/>
+
+                      <div className="event-category-content">
+                        <span>{section.subtitle}</span>
+                        <h3>{section.title}</h3>
+                        <p>{section.description}</p>
+                        <small>Click to explore</small>
+                      </div>
+                    </motion.button>
+                ))}
+              </motion.div>
+          )}
+
+          {activeSection && !activeEvent && (
+              <motion.div
+                  key={activeSection.id}
+                  initial={{opacity: 0, x: 60}}
+                  animate={{opacity: 1, x: 0}}
+                  exit={{opacity: 0, x: -60}}
+                  transition={{duration: 0.5, ease: "easeOut"}}
+              >
+                <button className="back-button" onClick={backToCategories}>
+                  ← Back to Events
+                </button>
+
+                <div className="event-list-header">
+                  <span>{activeSection.subtitle}</span>
+                  <h3>{activeSection.title}</h3>
+                  <p>{activeSection.description}</p>
+                </div>
+
+                <div className="event-list-grid">
+                  {activeSection.events.map((eventItem, index) => (
+                      <motion.button
+                          className="event-mini-card"
+                          key={eventItem.title}
+                          onClick={() => openEvent(eventItem)}
+                          initial={{opacity: 0, y: 24}}
+                          animate={{opacity: 1, y: 0}}
+                          transition={{delay: index * 0.08}}
+                      >
+                        <EventImage
+                            src={eventItem.cover || eventItem.photos[0]}
+                            title={eventItem.title}
+                        />
+
+                        <div className="event-mini-content">
+                          <span>{eventItem.date}</span>
+                          <h3>{eventItem.title}</h3>
+                          <p>{eventItem.description}</p>
+                          <small>{eventItem.venue}</small>
+                        </div>
+                      </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+          )}
+
+          {activeSection && activeEvent && (
+              <motion.div
+                  key={activeEvent.title}
+                  className="event-detail-view"
+                  initial={{opacity: 0, scale: 0.96, y: 40}}
+                  animate={{opacity: 1, scale: 1, y: 0}}
+                  exit={{opacity: 0, scale: 0.96, y: -40}}
+                  transition={{duration: 0.5, ease: "easeOut"}}
+              >
+                <button className="back-button" onClick={backToSection}>
+                  ← Back to {activeSection.title}
+                </button>
+
+                <div className="event-detail-hero">
+                  <div>
+                    <span>{activeSection.title}</span>
+                    <h3>{activeEvent.title}</h3>
+                    <p>{activeEvent.description}</p>
+
+                    <div className="event-detail-meta">
+                      <small>{activeEvent.date}</small>
+                      <small>{activeEvent.venue}</small>
+                    </div>
+                  </div>
+
+                  <EventImage
+                      src={activeEvent.photos[0]}
+                      title={activeEvent.title}
+                      onClick={() => openPhoto(activeEvent.photos, 0, activeEvent.title)}
+                  />
+                </div>
+
+                <div className="event-detail-gallery">
+                  {activeEvent.photos.slice(0, visiblePhotoCount).map((photo, index) => (
+                      <div className="event-photo-item" key={photo}>
+                        <EventImage
+                            src={photo}
+                            title={`${activeEvent.title} ${index + 1}`}
+                            onClick={() =>
+                                openPhoto(activeEvent.photos, index, activeEvent.title)
+                            }
+                        />
+                      </div>
+                  ))}
+                </div>
+
+                {visiblePhotoCount < activeEvent.photos.length && (
+                    <div className="load-more-wrap">
+                      <button
+                          className="load-more-photos"
+                          onClick={() => setVisiblePhotoCount((count) => count + 3)}
+                      >
+                        Load More Photos
+                      </button>
+                    </div>
+                )}
+              </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {selectedPhoto && (
+              <motion.div
+                  className="photo-modal-backdrop"
+                  onClick={closePhoto}
+                  initial={{opacity: 0}}
+                  animate={{opacity: 1}}
+                  exit={{opacity: 0}}
+              >
+                <motion.div
+                    className="photo-modal-card"
+                    onClick={(event) => event.stopPropagation()}
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}
+                >
+                  <button className="photo-modal-close" onClick={closePhoto}>
+                    <X size={22}/>
+                  </button>
+
+                  {selectedPhoto.photos.length > 1 && (
+                      <>
+                        <button
+                            className="photo-nav-btn photo-nav-prev"
+                            onClick={showPreviousPhoto}
+                        >
+                          ‹
+                        </button>
+
+                        <button
+                            className="photo-nav-btn photo-nav-next"
+                            onClick={showNextPhoto}
+                        >
+                          ›
+                        </button>
+                      </>
+                  )}
+
+                  <img
+                      src={selectedPhoto.photos[selectedPhoto.index]}
+                      alt={`${selectedPhoto.titlePrefix} ${selectedPhoto.index + 1}`}
+                  />
+
+                  <div className="photo-modal-footer">
+                    <div>
+                <span>
+                  Photo {selectedPhoto.index + 1} of{" "}
+                  {selectedPhoto.photos.length}
+                </span>
+                      <h3>
+                        {selectedPhoto.titlePrefix} {selectedPhoto.index + 1}
+                      </h3>
+                    </div>
+
+                    <a
+                        className="photo-download-btn"
+                        href={selectedPhoto.photos[selectedPhoto.index]}
+                        download
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                      Download Photo
+                    </a>
+                  </div>
+                </motion.div>
+              </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+  );
+}
 function ImageTile({ item, onClick }) {
   return (
     <button className="gallery-card" onClick={onClick}>
       <img
-        src={item.image}
-        alt={item.title}
+          src={src}
+          alt={title}
+          loading="lazy"
+          decoding="async"
         onError={(event) => {
           event.currentTarget.style.display = "none";
           event.currentTarget.nextElementSibling.style.display = "grid";
@@ -1125,89 +1639,55 @@ function ClickMusicNotes() {
   );
 }
 function DrumCursorWithNotes() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [hitSide, setHitSide] = useState(null);
   const [notes, setNotes] = useState([]);
-  const nextStick = useRef("left");
 
   useEffect(() => {
     const musicalSymbols = ["♪", "♫", "♬", "♩", "𝄞"];
 
-    const handleMouseMove = (event) => {
-      setPosition({
-        x: event.clientX,
-        y: event.clientY,
-      });
-    };
-
     const handleClick = (event) => {
-      const side = nextStick.current;
-      nextStick.current = side === "left" ? "right" : "left";
-
-      setHitSide(side);
-
-      setTimeout(() => {
-        setHitSide(null);
-      }, 220);
-
       const id = `${Date.now()}-${Math.random()}`;
       const symbol =
           musicalSymbols[Math.floor(Math.random() * musicalSymbols.length)];
 
-      const newNote = {
-        id,
-        symbol,
-        x: event.clientX,
-        y: event.clientY,
-      };
-
-      setNotes((currentNotes) => [...currentNotes, newNote]);
+      setNotes((currentNotes) => [
+        ...currentNotes,
+        {
+          id,
+          symbol,
+          x: event.clientX,
+          y: event.clientY,
+        },
+      ]);
 
       setTimeout(() => {
         setNotes((currentNotes) =>
             currentNotes.filter((note) => note.id !== id)
         );
-      }, 900);
+      }, 800);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("click", handleClick);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("click", handleClick);
     };
   }, []);
 
   return (
-      <>
-        <div
-            className={`custom-drum-cursor ${hitSide ? `hit-${hitSide}` : ""}`}
-            style={{
-              left: position.x,
-              top: position.y,
-            }}
-            aria-hidden="true"
-        >
-          <span className="cursor-stick left-stick" />
-          <span className="cursor-stick right-stick" />
-        </div>
-
-        <div className="click-notes-layer" aria-hidden="true">
-          {notes.map((note) => (
-              <span
-                  key={note.id}
-                  className="click-note"
-                  style={{
-                    left: note.x,
-                    top: note.y,
-                  }}
-              >
-            {note.symbol}
-          </span>
-          ))}
-        </div>
-      </>
+      <div className="click-notes-layer" aria-hidden="true">
+        {notes.map((note) => (
+            <span
+                key={note.id}
+                className="click-note"
+                style={{
+                  left: note.x,
+                  top: note.y,
+                }}
+            >
+          {note.symbol}
+        </span>
+        ))}
+      </div>
   );
 }
 export default function App() {
@@ -1218,7 +1698,6 @@ export default function App() {
         <Hero />
         <About />
         <Events />
-        <Gallery />
         <Team />
         <Join />
         <Footer />
