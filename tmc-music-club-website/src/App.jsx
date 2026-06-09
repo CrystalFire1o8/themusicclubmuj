@@ -28,9 +28,9 @@ const ASSETS = {
 
 const stats = [
   { value: "8+", label: "Flagship editions" },
-  { value: "60+", label: "Active artists" },
-  { value: "20+", label: "Annual performances" },
-  { value: "1", label: "Shared stage" },
+  { value: "100+", label: "Active artists" },
+  { value: "120+", label: "Annual performances" },
+  { value: "150+", label: "Shared stage" },
 ];
 
  const eventSections = [
@@ -38,16 +38,18 @@ const stats = [
     id: "ex-fest-competitions",
     title: "Ex Fest Competitions",
     subtitle: "Stages beyond campus",
+    disableGallery: true,
     description:
         "TMC artists representing the club in external fests, battle of bands, solo competitions, and inter-college showcases.",
-    cover: "/assets/events/ex-fest-cover.jpg",
+    cover: "/assets/events/ex-fest-cover.png",
     events: [
       {
-        title: "Requiem",
-        date: "Onerios",
-        venue: "Vasanti Pai Auditorium",
+        title: "Mood Indigo Eliminations'25",
+        date: "7th September 2025",
+        venue: "Vivekananda Global University, Jaipur",
+        cover: "/assets/events/ex-fest-cover.png",
         description:
-            "A high-energy battle of bands experience where bands bring their best arrangements, stage presence, and live chemistry.",
+            "At the elimination round of IIT Bombay’s renowned Mood Indigo, held at Vivekananda Global University, Jaipur on 7th September 2025, our artists brought their A-game and earned a well-deserved place in the next stage. The stage was electric, the performances unforgettable, and the journey nothing short of incredible.",
         photos: [
           "/assets/events/requiem-1.jpg",
           "/assets/events/requiem-2.jpg",
@@ -55,11 +57,12 @@ const stats = [
         ],
       },
       {
-        title: "Mood Indigo Selections",
-        date: "External Fest",
-        venue: "IIT Bombay",
+        title: "Blitzschlag'26",
+        date: "8th February 2026",
+        venue: "MNIT,Jaipur",
+        cover: "/assets/events/mnit.png",
         description:
-            "A competitive platform for selected performers and bands to represent their sound outside campus.",
+            "TMC returned to Blitzschlag - the annual cultural fest of MNIT Jaipur, held on 8th February 2026.\nWe are proud to share that our bands TISM and FATDOG secured the🥇1st position and the🥈2nd position respectively at Battle of Bands, bringing home yet another achievement for the club and the university.",
         photos: [
           "/assets/events/mood-indigo-1.jpg",
           "/assets/events/mood-indigo-2.jpg",
@@ -67,11 +70,65 @@ const stats = [
         ],
       },
       {
-        title: "Battle of Bands",
-        date: "External Competitions",
-        venue: "Various Colleges",
+        title: "Sabrang'25",
+        date: "10th-12th October 2025",
+        venue: "JKLU,Jaipur",
+        cover: "/assets/events/jklu.png",
         description:
-            "TMC bands competing across college festivals with original arrangements, covers, and stage-ready sets.",
+            "TMC took over Sabrang‘25 at JKLU Jaipur, and we didn’t just perform, we dominated⚡️\n🥇1st Position (Battle of Bands)- 200ft.",
+        photos: [
+          "/assets/events/battle-1.jpg",
+          "/assets/events/battle-2.jpg",
+          "/assets/events/battle-3.jpg",
+        ],
+      },
+      {
+        title: "VivaCity'26",
+        date: "6th February 2026",
+        venue: "LNMIIT,Jaipur",
+        cover: "/assets/events/lnmiit.png",
+        description:
+            "TMC turned up the volume at VIVACITY ’25, LNMIIT Jaipur held on 6th Feb!🎶⚡. BATTLE OF BANDS\n" +
+            "🏆 Winner – Fatdog",
+        photos: [
+          "/assets/events/battle-1.jpg",
+          "/assets/events/battle-2.jpg",
+          "/assets/events/battle-3.jpg",
+        ],
+      },
+      {
+        title: "Zest'26",
+        date: "27th March 2026",
+        venue: "St. Xavier’s University, Jaipur",
+        cover: "/assets/events/xavier.png",
+        description:
+            "ZEST’26 at Xavier’s College, Jaipur — locked in, turned up, and walked away with 🥇.",
+        photos: [
+          "/assets/events/battle-1.jpg",
+          "/assets/events/battle-2.jpg",
+          "/assets/events/battle-3.jpg",
+        ],
+      },
+      {
+        title: "Voltage'26",
+        date: "27th Feburary 2026",
+        venue: "Amity University,Noida",
+        cover: "/assets/events/amity.png",
+        description:
+            "Voltage was high, the stage was louder, and we showed up stronger. ⚡🏆\nFatDog takes 🥇1st place at Voltage – The Battle of Bands at Amity University Noida, owning the stage and outplaying some serious competition.",
+        photos: [
+          "/assets/events/battle-1.jpg",
+          "/assets/events/battle-2.jpg",
+          "/assets/events/battle-3.jpg",
+        ],
+      },
+      {
+        title: "Mood Indigo'25",
+        date: "15th-18th December 2025",
+        venue: "IIT Bombay",
+        cover: "/assets/events/IIT.png",
+        description:
+            "back in bombay, and somehow it still hits different every time💗\na while ago, we found ourselves at Mood Indigo again — louder, bigger, and packed with unreal talent from all over the country. With our bands and solo acts carrying tmc’s name, the stage turned into something we won’t forget anytime soon.",
         photos: [
           "/assets/events/battle-1.jpg",
           "/assets/events/battle-2.jpg",
@@ -316,7 +373,6 @@ const teamByTenure = {
       domain: "Leadership",
       photo: "/assets/team/uday-bhanu-sharma.png",
       instagram: "ubhanu06",
-      bio: "Leading the club vision, culture, and overall direction for the tenure.",
     },
     {
       name: "Tejas Bhadauria",
@@ -325,7 +381,6 @@ const teamByTenure = {
       domain: "Administration",
       photo: "/assets/team/tejas-bhadauria.png",
       instagram: "tejasbhadauriaa",
-      bio: "Driving coordination, execution, club communication, and flagship planning.",
     },
     {
       name: "Adit Tanted",
@@ -334,7 +389,6 @@ const teamByTenure = {
       domain: "Strategy",
       photo: "/assets/team/adit-tanted.png",
       instagram: "adit_tanted_22",
-      bio: "Supporting leadership, planning, and smooth functioning of the club.",
     },
     {
       name: "Shhorya Agarwal",
@@ -343,7 +397,6 @@ const teamByTenure = {
       domain: "Finance",
       photo: "/assets/team/shhorya-agarwal.png",
       instagram: "shhorya_agarwal",
-      bio: "Managing budgets, records, resources, and financial coordination.",
     },
     {
       name: "Aditya Ranjan",
@@ -352,7 +405,6 @@ const teamByTenure = {
       domain: "Events",
       photo: "/assets/team/aditya-ranjan.png",
       instagram: "adityaranjan_fr",
-      bio: "Planning and executing performances, showcases, and live club experiences.",
     },
     {
       name: "Agrima Dwivedi",
@@ -361,7 +413,6 @@ const teamByTenure = {
       domain: "Promotions",
       photo: "/assets/team/agrima-dwivedi.png",
       instagram: "agrimadw",
-      bio: "Handling campaigns, creative visibility, and promotional presence.",
     },
     {
       name: "Divyansh Kaushal",
@@ -370,7 +421,6 @@ const teamByTenure = {
       domain: "Public Relations",
       photo: "/assets/team/divyansh-kaushal.png",
       instagram: "divyansh__kaushal",
-      bio: "Managing outreach, communication, collaborations, and external relations.",
     },
   ],
 
@@ -382,7 +432,6 @@ const teamByTenure = {
       domain: "Leadership",
       photo: "/assets/team/sourya-kvs.png",
       instagram: "sourya_162",
-      bio: "Led the club vision, direction, and cultural identity for the tenure.",
     },
     {
       name: "Rochis Sharma",
@@ -391,7 +440,6 @@ const teamByTenure = {
       domain: "Administration",
       photo: "/assets/team/rochis-sharma.png",
       instagram: "__rochis__",
-      bio: "Managed coordination, execution, and internal club functioning.",
     },
     {
       name: "Rohitansh Srivastava",
@@ -400,7 +448,6 @@ const teamByTenure = {
       domain: "Strategy",
       photo: "/assets/team/rohitansh-srivastava.png",
       instagram: "rohitansh_",
-      bio: "Supported leadership, planning, and major event execution.",
     },
     {
       name: "Yashvit Kumar",
@@ -409,7 +456,6 @@ const teamByTenure = {
       domain: "Finance",
       photo: "/assets/team/yashvit-kumar.png",
       instagram: "blobfish_exe",
-      bio: "Handled budgets, resources, and finance-related coordination.",
     },
     {
       name: "Aanan Chopra",
@@ -418,7 +464,7 @@ const teamByTenure = {
       domain: "Events",
       photo: "/assets/team/aanan-chopra.png",
       instagram: "aananchopra",
-      bio: "Managed event planning, execution, and performance flow.",
+
     },
     {
       name: "Saumya Chauhan",
@@ -427,7 +473,6 @@ const teamByTenure = {
       domain: "Promotions",
       photo: "/assets/team/saumya-chauhan.png",
       instagram: "_saumyachauhan_",
-      bio: "Handled promotional campaigns, visibility, Design and creative communication.",
     },
     {
       name: "Saarang Agarwal",
@@ -436,33 +481,11 @@ const teamByTenure = {
       domain: "Public Relations",
       photo: "/assets/team/saarang-agarwal.png",
       instagram: "saarang_agarwal_",
-      bio: "Managed collaborations, outreach, and public communication.",
-    },
-  ],
-
-  "2024-23": [
-    {
-      name: "Add Name",
-      role: "President",
-      group: "Core",
-      domain: "Leadership",
-      photo: "/assets/team/2024-president.png",
-      instagram: "",
-      bio: "Add details for this tenure.",
-    },
-    {
-      name: "Add Name",
-      role: "General Secretary",
-      group: "Core",
-      domain: "Administration",
-      photo: "/assets/team/2024-general-secretary.png",
-      instagram: "",
-      bio: "Add details for this tenure.",
     },
   ],
 };
 
-const navLinks = ["Home", "About", "Events", "Team", "Join"];
+const navLinks = ["Home", "About", "Events", "Team", "Contact"];
 
 function initials(name) {
   return name
@@ -475,12 +498,37 @@ function initials(name) {
 }
 function CountUp({ value }) {
   const ref = useRef(null);
-  const [started, setStarted] = useState(false);
+  const animationRef = useRef(null);
+
   const [count, setCount] = useState(0);
 
   const valueText = String(value);
   const target = Number.parseInt(valueText.replace(/\D/g, ""), 10) || 0;
   const suffix = valueText.replace(/[0-9]/g, "");
+
+  const startCounting = () => {
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+
+    setCount(0);
+
+    const duration = 1400;
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      setCount(Math.round(target * easedProgress));
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+  };
 
   useEffect(() => {
     const element = ref.current;
@@ -489,39 +537,26 @@ function CountUp({ value }) {
     const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setStarted(true);
-            observer.disconnect();
+            startCounting();
+          } else {
+            setCount(0);
           }
         },
-        { threshold: 0.45 }
+        {
+          threshold: 0.55,
+        }
     );
 
     observer.observe(element);
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observer.disconnect();
 
-  useEffect(() => {
-    if (!started) return;
-
-    let animationFrame;
-    const duration = 1300;
-    const startTime = performance.now();
-
-    const animate = (currentTime) => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(target * easedProgress));
-
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
       }
     };
-
-    animationFrame = requestAnimationFrame(animate);
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, [started, target]);
+  }, [target]);
 
   return (
       <span ref={ref}>
@@ -547,9 +582,9 @@ function Navbar() {
     if (section === "Events") {
       window.dispatchEvent(new Event("reset-events-section"));
     }
-
+    const sectionId = section === "Contact" ? "join" : section.toLowerCase();
     document
-        .getElementById(section.toLowerCase())
+        .getElementById(sectionId)
         ?.scrollIntoView({ behavior: "smooth" });
 
     setOpen(false);
@@ -727,7 +762,12 @@ function Hero() {
         </div>
 
         <p className="hero-kicker">
-          <Sparkles size={16} /> Manipal University Jaipur
+          <img
+              src="/assets/manipal-logo.png"
+              alt="Manipal University Jaipur logo"
+              className="manipal-logo"
+          />
+          Manipal University Jaipur
         </p>
         <TypewriterHeroText />
         <p className="hero-subtitle">
@@ -945,7 +985,7 @@ function Events() {
         <SectionTitle
             eyebrow="Events"
             title="Every sound has a stage."
-            text="Explore TMC through ex-fest competitions, in-house events, and original compositions."
+            text="Explore TMC through ex-fest competitions and in-house events."
         />
 
         <AnimatePresence mode="wait">
@@ -958,7 +998,9 @@ function Events() {
                   exit={{opacity: 0, y: -24}}
                   transition={{duration: 0.45}}
               >
-                {eventSections.map((section, index) => (
+                {eventSections
+                    .filter((section) => section.id !== "original-compositions")
+                    .map((section, index) => (
                     <motion.button
                         className="event-category-card"
                         key={section.id}
@@ -1002,9 +1044,17 @@ function Events() {
                 <div className="event-list-grid">
                   {activeSection.events.map((eventItem, index) => (
                       <motion.button
-                          className="event-mini-card"
+                          className={
+                            activeSection.disableGallery
+                                ? "event-mini-card no-gallery-card"
+                                : "event-mini-card"
+                          }
                           key={eventItem.title}
-                          onClick={() => openEvent(eventItem)}
+                          onClick={() => {
+                            if (!activeSection.disableGallery) {
+                              openEvent(eventItem);
+                            }
+                          }}
                           initial={{opacity: 0, y: 24}}
                           animate={{opacity: 1, y: 0}}
                           transition={{delay: index * 0.08}}
@@ -1473,12 +1523,62 @@ function Team() {
 }
 
 function Join() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    interest: "Vocals",
-    message: "",
-  });
+  return (
+      <section id="join" className="section join-section">
+        <SectionTitle
+            eyebrow="Contact"
+            title="Let’s create something musical."
+            text="Reach out to The Music Club for performances, collaborations, workshops, events, or general queries."
+        />
+
+        <div className="contact-clean-grid">
+          <form
+              className="join-form contact-clean-form"
+              action="https://formsubmit.co/themusicclub.muj@gmail.com"
+              method="POST"
+          >
+            <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission - The Music Club MUJ"
+            />
+
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                required
+            />
+
+            <input
+                type="text"
+                name="contact"
+                placeholder="Phone number / Email ID"
+                required
+            />
+
+            <input
+                type="text"
+                name="query"
+                placeholder="What is your query about?"
+                required
+            />
+            <textarea
+                name="message"
+                placeholder="Tell us how we can help..."
+                required
+            />
+
+            <button type="submit">
+              Send Message <Send size={18} />
+            </button>
+          </form>
+        </div>
+      </section>
+  );
   const [submissions, setSubmissions] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("tmc-join-submissions")) || [];
@@ -1569,22 +1669,61 @@ function Join() {
   );
 }
 
+
 function Footer() {
   return (
-    <footer className="footer">
-      <div>
-        <strong>{CLUB_NAME}</strong>
-        <p>Manipal University Jaipur</p>
-      </div>
-      <div className="footer-links">
-        <a href="mailto:musicclub@example.com">
-          <Mail size={18} /> Email
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">
-          <Music2 size={18} /> Instagram
-        </a>
-      </div>
-    </footer>
+      <footer className="footer">
+        <div className="footer-brand-stacked">
+          <div className="footer-brand-line">
+            <img
+                src="/assets/tmc-logo.png"
+                alt="The Music Club logo"
+                className="footer-inline-logo"
+            />
+            <strong>The Music Club</strong>
+          </div>
+
+          <div className="footer-brand-line">
+            <img
+                src="/assets/manipal-logo.png"
+                alt="Manipal University Jaipur logo"
+                className="footer-inline-logo"
+            />
+            <p>Manipal University Jaipur</p>
+          </div>
+        </div>
+
+        <div className="footer-right">
+          <p className="footer-copyright">
+            © 2026 TMC MUJ. All Rights Reserved.
+          </p>
+
+          <p className="footer-credit">
+            Designed and Developed by{" "}
+            <a
+                href="https://www.linkedin.com/in/tejas-bhadauria-513a78293/"
+                target="_blank"
+                rel="noreferrer"
+            >
+              Tejas Bhadauria
+            </a>
+          </p>
+
+          <div className="footer-links">
+            <a href="mailto:themusicclub.muj@gmail.com">
+              <Mail size={18} /> Email
+            </a>
+
+            <a
+                href="https://www.instagram.com/tmc.muj/"
+                target="_blank"
+                rel="noreferrer"
+            >
+              <InstagramIcon size={18} /> Instagram
+            </a>
+          </div>
+        </div>
+      </footer>
   );
 }
 function ClickMusicNotes() {
@@ -1690,9 +1829,98 @@ function DrumCursorWithNotes() {
       </div>
   );
 }
+function BackgroundMusic() {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [needsInteraction, setNeedsInteraction] = useState(false);
+
+  const tracks = [
+    "/assets/music/song-1.mp3",
+    "/assets/music/song-2.mp3",
+    "/assets/music/song-3.mp3",
+  ];
+
+  const selectedTrack = useMemo(() => {
+    const randomIndex = Math.floor(Math.random() * tracks.length);
+    return tracks[randomIndex];
+  }, []);
+
+  const playMusic = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      audio.volume = 0.28;
+      await audio.play();
+      setIsPlaying(true);
+      setNeedsInteraction(false);
+    } catch {
+      setNeedsInteraction(true);
+    }
+  };
+
+  const pauseMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.pause();
+    setIsPlaying(false);
+  };
+
+  const toggleMusic = () => {
+    if (isPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  };
+
+  useEffect(() => {
+    playMusic();
+
+    const startOnFirstInteraction = () => {
+      playMusic();
+    };
+
+    window.addEventListener("pointerdown", startOnFirstInteraction, {
+      once: true,
+    });
+
+    window.addEventListener("keydown", startOnFirstInteraction, {
+      once: true,
+    });
+
+    return () => {
+      window.removeEventListener("pointerdown", startOnFirstInteraction);
+      window.removeEventListener("keydown", startOnFirstInteraction);
+    };
+  }, []);
+
+  return (
+      <>
+        <audio ref={audioRef} src={selectedTrack} loop preload="auto" />
+
+        <button
+            className={`music-toggle ${isPlaying ? "playing" : ""}`}
+            onClick={toggleMusic}
+            aria-label={isPlaying ? "Pause background music" : "Play background music"}
+        >
+          <span>{isPlaying ? "♫" : "♪"}</span>
+          <small>
+            {isPlaying
+                ? "Music On"
+                : needsInteraction
+                    ? "Tap for Music"
+                    : "Music Off"}
+          </small>
+        </button>
+      </>
+  );
+}
 export default function App() {
   return (
       <main>
+        <BackgroundMusic />
         <DrumCursorWithNotes />
         <Navbar />
         <Hero />
