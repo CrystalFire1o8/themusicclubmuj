@@ -149,7 +149,7 @@ const stats = [
        {
          title: "TMC Live 8.0",
          date: "Flagship Event",
-         venue: "MUJ Campus",
+         venue: "Ramdas Pai Amphitheatre",
 
          description:
              "The flagship event of The Music Club, bringing together bands, solo acts, acoustic sets, full-stage performances, and the biggest TMC energy of the year.",
@@ -171,7 +171,7 @@ const stats = [
        {
          title: "Guitar Workshop",
          date: "Workshop",
-         venue: "Jam Room / Campus",
+         venue: "Sharda/TMA Pai Auditorium",
 
          description:
              "A learning-based session for beginners and intermediate guitarists covering basics, techniques, chords, rhythm, and performance confidence.",
@@ -191,9 +191,9 @@ const stats = [
        {
          title: "Echoes",
          date: "In-House Event",
-         venue: "MUJ Campus",
+         venue: "Jam Room",
          description:
-             "A music-driven event built around performances, rehearsals, crowd energy, and the emotional soundscape of campus life.",
+             "Echoes is a TMC-exclusive event designed for first-year students, where participants are grouped into teams under the guidance of mentors. Over a preparation period, each team builds and rehearses a complete set, eventually competing against one another in the jam room. The event encourages collaboration, confidence, stage presence, and musical growth from the very beginning of their college journey.",
          cover: "/assets/events/echoes-cover.jpg",
          photos: [
            "/assets/events/echoes-1.webp",
@@ -213,10 +213,10 @@ const stats = [
        {
          title: "Techideate",
          date: "Campus Event",
-         venue: "MUJ Campus",
+         venue: "Ramdas Pai Amphitheatre",
          cover: "/assets/events/techideate-cover.jpg",
          description:
-             "A collaborative campus event where TMC contributed through music, performances, and event energy.",
+             "Techideate is the annual technical fest of Manipal University Jaipur, where The Music Club added a powerful musical close to the event. TMC bands performed during the closing ceremony, bringing live energy, campus spirit, and a memorable finale to the fest.",
          photos: [
            "/assets/events/techideate-1.webp",
            "/assets/events/techideate-2.webp",
@@ -235,7 +235,7 @@ const stats = [
          venue: "Vasanti Pai Auditorium/Main-Stage Onerios",
          cover: "/assets/events/requiem-cover.jpg",
          description:
-             "A powerful battle of bands experience where artists bring live arrangements, stage presence, and competitive musical energy.",
+             "Requiem is the Battle of Bands held during Onerios, where TMC bands compete alongside external and out-house participants. With strong stage presence, tight arrangements, and high-energy performances, TMC has secured multiple prizes and represented the club with pride.",
          photos: [
            "/assets/events/requiem-1.webp",
            "/assets/events/requiem-2.webp",
@@ -252,10 +252,10 @@ const stats = [
        {
          title: "Octaves",
          date: "Music Event",
-         venue: "MUJ Campus",
+         venue: "Sharda/TMA Pai Auditorium",
          cover: "/assets/events/octaves-cover.jpg",
          description:
-             "A TMC event celebrating vocals, instruments, harmonies, and the many layers that make campus music come alive.",
+             "Octaves is a minor event under Onerios, curated by The Music Club as a Western solo singing competition. It gives vocalists a platform to showcase their range, control, expression, and individuality through live solo performances.",
          photos: [
            "/assets/events/octaves-1.webp",
            "/assets/events/octaves-2.webp",
@@ -291,7 +291,7 @@ const stats = [
        {
          title: "Daan Utsav RAC",
          date: "Community Event",
-         venue: "MUJ Campus",
+         venue: "Sharda/TMA Pai Auditorium",
          cover: "/assets/events/daan-utsav-cover.jpg",
          description:
              "A community-oriented event where music became a part of celebration, contribution, and collective campus spirit.",
@@ -1428,29 +1428,58 @@ function TeamCard({ member }) {
       </div>
   );
 }
+function FacultyCoordinatorCard() {
+  return (
+      <div className="faculty-profile-wrap">
+        <div className="faculty-profile-card">
+          <div className="faculty-profile-photo">
+            <img
+                src="/assets/team/anjalee-narayan.jpeg"
+                alt="Dr. Anjalee Narayan"
+            />
+          </div>
 
+          <div className="faculty-profile-content">
+            <span>Faculty Coordinator</span>
+            <h3>Dr. Anjalee Narayan</h3>
+
+            <p>
+              Assistant Professor, Department of Liberal Arts and Social Sciences,
+              and Faculty Coordinator of The Music Club, MUJ.
+            </p>
+
+            <a
+                href="mailto:anjalee.narayan@jaipur.manipal.edu"
+                className="faculty-mail-button"
+            >
+              <Mail size={18} />
+              anjalee.narayan@jaipur.manipal.edu
+            </a>
+          </div>
+        </div>
+      </div>
+  );
+}
 function Team() {
   const tenures = Object.keys(teamByTenure);
+  const FACULTY_TAB = "Faculty Coordinator";
+  const teamTabs = [FACULTY_TAB, ...tenures];
 
   const [activeTenure, setActiveTenure] = useState(tenures[0]);
   const [group, setGroup] = useState("All");
 
-  const currentTeam = teamByTenure[activeTenure];
+  const isFacultyActive = activeTenure === FACULTY_TAB;
 
-  const groups = [
-    "All",
-    ...Array.from(new Set(currentTeam.map((member) => member.group))),
-  ];
+  const currentTeam = isFacultyActive
+      ? []
+      : teamByTenure[activeTenure] || [];
 
-  const filtered =
+  const groups = ["All", "Core"];
+
+  const filteredMembers =
       group === "All"
           ? currentTeam
           : currentTeam.filter((member) => member.group === group);
-
-  const changeTenure = (tenure) => {
-    setActiveTenure(tenure);
-    setGroup("All");
-  };
 
   return (
       <section id="team" className="section">
@@ -1461,63 +1490,74 @@ function Team() {
         />
 
         <div className="tenure-tabs">
-          {tenures.map((tenure) => (
+          {teamTabs.map((tenure) => (
               <button
                   key={tenure}
-                  className={activeTenure === tenure ? "tenure-tab active" : "tenure-tab"}
-                  onClick={() => changeTenure(tenure)}
+                  className={activeTenure === tenure ? "active" : ""}
+                  onClick={() => {
+                    setActiveTenure(tenure);
+                    setGroup("All");
+                  }}
               >
                 {tenure}
               </button>
           ))}
         </div>
 
-        <motion.div
-            key={activeTenure}
-            className="tenure-heading"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-        >
-          <span>Tenure</span>
-          <h3>{activeTenure}</h3>
-        </motion.div>
-
-        <div className="chip-row spaced">
-          {groups.map((item) => (
-              <button
-                  className={group === item ? "chip active" : "chip"}
-                  key={item}
-                  onClick={() => setGroup(item)}
+        {isFacultyActive ? (
+            <FacultyCoordinatorCard />
+        ) : (
+            <>
+              <motion.div
+                  key={activeTenure}
+                  className="tenure-heading"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45 }}
               >
-                {item}
-              </button>
-          ))}
-        </div>
+                <span>Tenure</span>
+                <h3>{activeTenure}</h3>
+              </motion.div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-              key={`${activeTenure}-${group}`}
-              className="team-grid"
-              initial={{ opacity: 0, y: 28, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -24, scale: 0.98 }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
-              layout
-          >
-            {filtered.map((member, index) => (
+              <div className="chip-row spaced">
+                {groups.map((filter) => (
+                    <button
+                        key={filter}
+                        className={group === filter ? "active" : ""}
+                        onClick={() => setGroup(filter)}
+                    >
+                      {filter}
+                    </button>
+                ))}
+              </div>
+
+              <AnimatePresence mode="wait">
                 <motion.div
-                    key={`${activeTenure}-${member.name}-${member.role}-${index}`}
+                    key={`${activeTenure}-${group}`}
+                    className="team-grid"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.08, duration: 0.4 }}
-                    layout
+                    exit={{ opacity: 0, y: -24 }}
+                    transition={{ duration: 0.4 }}
                 >
-                  <TeamCard member={member} />
+                  {filteredMembers.map((member, index) => (
+                      <motion.div
+                          key={member.name}
+                          initial={{ opacity: 0, y: 26 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            delay: index * 0.08,
+                            duration: 0.4,
+                          }}
+                          layout
+                      >
+                        <TeamCard member={member} />
+                      </motion.div>
+                  ))}
                 </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+              </AnimatePresence>
+            </>
+        )}
       </section>
   );
 }
@@ -1547,6 +1587,13 @@ function Join() {
             <input type="hidden" name="_captcha" value="false" />
 
             <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+            />
+
+            <input
                 type="email"
                 name="email"
                 placeholder="Email address"
@@ -1556,7 +1603,7 @@ function Join() {
             <input
                 type="text"
                 name="contact"
-                placeholder="Phone number / Email ID"
+                placeholder="Phone number / Instagram ID"
                 required
             />
 
@@ -1566,6 +1613,7 @@ function Join() {
                 placeholder="What is your query about?"
                 required
             />
+
             <textarea
                 name="message"
                 placeholder="Tell us how we can help..."
@@ -1579,356 +1627,272 @@ function Join() {
         </div>
       </section>
   );
-  const [submissions, setSubmissions] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("tmc-join-submissions")) || [];
-    } catch {
-      return [];
-    }
-  });
-
-  const update = (field, value) => {
-    setForm((current) => ({ ...current, [field]: value }));
-  };
-
-  const submit = (event) => {
-    event.preventDefault();
-    const entry = {
-      ...form,
-      id: crypto.randomUUID(),
-      createdAt: new Date().toLocaleString(),
-    };
-    const next = [entry, ...submissions];
-    setSubmissions(next);
-    localStorage.setItem("tmc-join-submissions", JSON.stringify(next));
-    setForm({ name: "", email: "", interest: "Vocals", message: "" });
-  };
-
-  return (
-    <section id="join" className="section join-grid">
-      <div>
-        <SectionTitle
-          eyebrow="Join"
-          title="Step into the room where the sound begins."
-          text="This form works locally using browser localStorage. You can later connect it to Firebase, Supabase, or your own backend."
-        />
-
-        <form className="join-form" onSubmit={submit}>
-          <input
-            required
-            value={form.name}
-            onChange={(event) => update("name", event.target.value)}
-            placeholder="Your name"
-          />
-          <input
-            required
-            type="email"
-            value={form.email}
-            onChange={(event) => update("email", event.target.value)}
-            placeholder="Email address"
-          />
-          <select value={form.interest} onChange={(event) => update("interest", event.target.value)}>
-            <option>Vocals</option>
-            <option>Guitar</option>
-            <option>Keyboard</option>
-            <option>Drums</option>
-            <option>Production</option>
-            <option>Event Management</option>
-            <option>Design / Media</option>
-          </select>
-          <textarea
-            value={form.message}
-            onChange={(event) => update("message", event.target.value)}
-            placeholder="Tell us what music means to you..."
-            rows="5"
-          />
-          <button className="primary-btn" type="submit">
-            Submit Interest <Send size={18} />
-          </button>
-        </form>
-      </div>
-
-      <div className="submission-panel">
-        <h3>Recent local submissions</h3>
-        {submissions.length === 0 ? (
-          <p className="muted">No local submissions yet. Try filling the form.</p>
-        ) : (
-          <div className="submission-list">
-            {submissions.slice(0, 4).map((item) => (
-              <div className="submission-card" key={item.id}>
-                <strong>{item.name}</strong>
-                <span>{item.interest}</span>
-                <p>{item.message || "No message added."}</p>
-                <small>{item.createdAt}</small>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
 }
 
+  function Footer() {
+    return (
+        <footer className="footer">
+          <div className="footer-brand-stacked">
+            <div className="footer-brand-line">
+              <img
+                  src="/assets/tmc-logo.png"
+                  alt="The Music Club logo"
+                  className="footer-inline-logo"
+              />
+              <strong>The Music Club</strong>
+            </div>
 
-function Footer() {
-  return (
-      <footer className="footer">
-        <div className="footer-brand-stacked">
-          <div className="footer-brand-line">
-            <img
-                src="/assets/tmc-logo.png"
-                alt="The Music Club logo"
-                className="footer-inline-logo"
-            />
-            <strong>The Music Club</strong>
+            <div className="footer-brand-line">
+              <img
+                  src="/assets/manipal-logo.png"
+                  alt="Manipal University Jaipur logo"
+                  className="footer-inline-logo"
+              />
+              <p>Manipal University Jaipur</p>
+            </div>
           </div>
 
-          <div className="footer-brand-line">
-            <img
-                src="/assets/manipal-logo.png"
-                alt="Manipal University Jaipur logo"
-                className="footer-inline-logo"
-            />
-            <p>Manipal University Jaipur</p>
+          <div className="footer-right">
+            <p className="footer-copyright">
+              © 2026 TMC MUJ. All Rights Reserved.
+            </p>
+
+            <p className="footer-credit">
+              Designed and Developed by{" "}
+              <a
+                  href="https://www.linkedin.com/in/tejas-bhadauria-513a78293/"
+                  target="_blank"
+                  rel="noreferrer"
+              >
+                Tejas Bhadauria
+              </a>
+            </p>
+
+            <div className="footer-links">
+              <a href="mailto:themusicclub.muj@gmail.com">
+                <Mail size={18}/> Email
+              </a>
+
+              <a
+                  href="https://www.instagram.com/tmc.muj/"
+                  target="_blank"
+                  rel="noreferrer"
+              >
+                <InstagramIcon size={18}/> Instagram
+              </a>
+            </div>
           </div>
-        </div>
+        </footer>
+    );
+  }
 
-        <div className="footer-right">
-          <p className="footer-copyright">
-            © 2026 TMC MUJ. All Rights Reserved.
-          </p>
+  function ClickMusicNotes() {
+    const [notes, setNotes] = useState([]);
 
-          <p className="footer-credit">
-            Designed and Developed by{" "}
-            <a
-                href="https://www.linkedin.com/in/tejas-bhadauria-513a78293/"
-                target="_blank"
-                rel="noreferrer"
-            >
-              Tejas Bhadauria
-            </a>
-          </p>
+    useEffect(() => {
+      const musicalSymbols = ["♪", "♫", "♬", "♩", "𝄞"];
 
-          <div className="footer-links">
-            <a href="mailto:themusicclub.muj@gmail.com">
-              <Mail size={18} /> Email
-            </a>
+      const handleClick = (event) => {
+        const id = `${Date.now()}-${Math.random()}`;
+        const symbol =
+            musicalSymbols[Math.floor(Math.random() * musicalSymbols.length)];
 
-            <a
-                href="https://www.instagram.com/tmc.muj/"
-                target="_blank"
-                rel="noreferrer"
-            >
-              <InstagramIcon size={18} /> Instagram
-            </a>
-          </div>
-        </div>
-      </footer>
-  );
-}
-function ClickMusicNotes() {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    const musicalSymbols = ["♪", "♫", "♬", "♩", "𝄞"];
-
-    const handleClick = (event) => {
-      const id = `${Date.now()}-${Math.random()}`;
-      const symbol =
-          musicalSymbols[Math.floor(Math.random() * musicalSymbols.length)];
-
-      const newNote = {
-        id,
-        symbol,
-        x: event.clientX,
-        y: event.clientY,
-      };
-
-      setNotes((currentNotes) => [...currentNotes, newNote]);
-
-      setTimeout(() => {
-        setNotes((currentNotes) =>
-            currentNotes.filter((note) => note.id !== id)
-        );
-      }, 900);
-    };
-
-    window.addEventListener("click", handleClick);
-
-    return () => {
-      window.removeEventListener("click", handleClick);
-    };
-  }, []);
-
-  return (
-      <div className="click-notes-layer" aria-hidden="true">
-        {notes.map((note) => (
-            <span
-                key={note.id}
-                className="click-note"
-                style={{
-                  left: note.x,
-                  top: note.y,
-                }}
-            >
-          {note.symbol}
-        </span>
-        ))}
-      </div>
-  );
-}
-function DrumCursorWithNotes() {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    const musicalSymbols = ["♪", "♫", "♬", "♩", "𝄞"];
-
-    const handleClick = (event) => {
-      const id = `${Date.now()}-${Math.random()}`;
-      const symbol =
-          musicalSymbols[Math.floor(Math.random() * musicalSymbols.length)];
-
-      setNotes((currentNotes) => [
-        ...currentNotes,
-        {
+        const newNote = {
           id,
           symbol,
           x: event.clientX,
           y: event.clientY,
-        },
-      ]);
+        };
 
-      setTimeout(() => {
-        setNotes((currentNotes) =>
-            currentNotes.filter((note) => note.id !== id)
-        );
-      }, 800);
-    };
+        setNotes((currentNotes) => [...currentNotes, newNote]);
 
-    window.addEventListener("click", handleClick);
+        setTimeout(() => {
+          setNotes((currentNotes) =>
+              currentNotes.filter((note) => note.id !== id)
+          );
+        }, 900);
+      };
 
-    return () => {
-      window.removeEventListener("click", handleClick);
-    };
-  }, []);
+      window.addEventListener("click", handleClick);
 
-  return (
-      <div className="click-notes-layer" aria-hidden="true">
-        {notes.map((note) => (
-            <span
-                key={note.id}
-                className="click-note"
-                style={{
-                  left: note.x,
-                  top: note.y,
-                }}
-            >
+      return () => {
+        window.removeEventListener("click", handleClick);
+      };
+    }, []);
+
+    return (
+        <div className="click-notes-layer" aria-hidden="true">
+          {notes.map((note) => (
+              <span
+                  key={note.id}
+                  className="click-note"
+                  style={{
+                    left: note.x,
+                    top: note.y,
+                  }}
+              >
           {note.symbol}
         </span>
-        ))}
-      </div>
-  );
-}
-function BackgroundMusic() {
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [needsInteraction, setNeedsInteraction] = useState(false);
+          ))}
+        </div>
+    );
+  }
 
-  const tracks = [
-    "/assets/music/song-1.mp3",
-    "/assets/music/song-2.mp3",
-    "/assets/music/song-3.mp3",
-  ];
+  function DrumCursorWithNotes() {
+    const [notes, setNotes] = useState([]);
 
-  const selectedTrack = useMemo(() => {
-    const randomIndex = Math.floor(Math.random() * tracks.length);
-    return tracks[randomIndex];
-  }, []);
+    useEffect(() => {
+      const musicalSymbols = ["♪", "♫", "♬", "♩", "𝄞"];
 
-  const playMusic = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
+      const handleClick = (event) => {
+        const id = `${Date.now()}-${Math.random()}`;
+        const symbol =
+            musicalSymbols[Math.floor(Math.random() * musicalSymbols.length)];
 
-    try {
-      audio.volume = 0.28;
-      await audio.play();
-      setIsPlaying(true);
-      setNeedsInteraction(false);
-    } catch {
-      setNeedsInteraction(true);
-    }
-  };
+        setNotes((currentNotes) => [
+          ...currentNotes,
+          {
+            id,
+            symbol,
+            x: event.clientX,
+            y: event.clientY,
+          },
+        ]);
 
-  const pauseMusic = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
+        setTimeout(() => {
+          setNotes((currentNotes) =>
+              currentNotes.filter((note) => note.id !== id)
+          );
+        }, 800);
+      };
 
-    audio.pause();
-    setIsPlaying(false);
-  };
+      window.addEventListener("click", handleClick);
 
-  const toggleMusic = () => {
-    if (isPlaying) {
-      pauseMusic();
-    } else {
-      playMusic();
-    }
-  };
+      return () => {
+        window.removeEventListener("click", handleClick);
+      };
+    }, []);
 
-  useEffect(() => {
-    playMusic();
+    return (
+        <div className="click-notes-layer" aria-hidden="true">
+          {notes.map((note) => (
+              <span
+                  key={note.id}
+                  className="click-note"
+                  style={{
+                    left: note.x,
+                    top: note.y,
+                  }}
+              >
+          {note.symbol}
+        </span>
+          ))}
+        </div>
+    );
+  }
 
-    const startOnFirstInteraction = () => {
-      playMusic();
+  function BackgroundMusic() {
+    const audioRef = useRef(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [needsInteraction, setNeedsInteraction] = useState(false);
+
+    const tracks = [
+      "/assets/music/song-1.mp3",
+      "/assets/music/song-2.mp3",
+      "/assets/music/song-3.mp3",
+    ];
+
+    const selectedTrack = useMemo(() => {
+      const randomIndex = Math.floor(Math.random() * tracks.length);
+      return tracks[randomIndex];
+    }, []);
+
+    const playMusic = async () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      try {
+        audio.volume = 0.28;
+        await audio.play();
+        setIsPlaying(true);
+        setNeedsInteraction(false);
+      } catch {
+        setNeedsInteraction(true);
+      }
     };
 
-    window.addEventListener("pointerdown", startOnFirstInteraction, {
-      once: true,
-    });
+    const pauseMusic = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
 
-    window.addEventListener("keydown", startOnFirstInteraction, {
-      once: true,
-    });
-
-    return () => {
-      window.removeEventListener("pointerdown", startOnFirstInteraction);
-      window.removeEventListener("keydown", startOnFirstInteraction);
+      audio.pause();
+      setIsPlaying(false);
     };
-  }, []);
 
-  return (
-      <>
-        <audio ref={audioRef} src={selectedTrack} loop preload="auto" />
+    const toggleMusic = () => {
+      if (isPlaying) {
+        pauseMusic();
+      } else {
+        playMusic();
+      }
+    };
 
-        <button
-            className={`music-toggle ${isPlaying ? "playing" : ""}`}
-            onClick={toggleMusic}
-            aria-label={isPlaying ? "Pause background music" : "Play background music"}
-        >
-          <span>{isPlaying ? "♫" : "♪"}</span>
-          <small>
-            {isPlaying
-                ? "Music On"
-                : needsInteraction
-                    ? "Tap for Music"
-                    : "Music Off"}
-          </small>
-        </button>
-      </>
-  );
-}
-export default function App() {
-  return (
-      <main>
-        <BackgroundMusic />
-        <DrumCursorWithNotes />
-        <Navbar />
-        <Hero />
-        <About />
-        <Events />
-        <Team />
-        <Join />
-        <Footer />
-      </main>
-  );
-}
+    useEffect(() => {
+      playMusic();
+
+      const startOnFirstInteraction = () => {
+        playMusic();
+      };
+
+      window.addEventListener("pointerdown", startOnFirstInteraction, {
+        once: true,
+      });
+
+      window.addEventListener("keydown", startOnFirstInteraction, {
+        once: true,
+      });
+
+      return () => {
+        window.removeEventListener("pointerdown", startOnFirstInteraction);
+        window.removeEventListener("keydown", startOnFirstInteraction);
+      };
+    }, []);
+
+    return (
+        <>
+          <audio ref={audioRef} src={selectedTrack} loop preload="auto"/>
+
+          <button
+              className={`music-toggle ${isPlaying ? "playing" : ""}`}
+              onClick={toggleMusic}
+              aria-label={isPlaying ? "Pause background music" : "Play background music"}
+          >
+            <span>{isPlaying ? "♫" : "♪"}</span>
+            <small>
+              {isPlaying
+                  ? "Music On"
+                  : needsInteraction
+                      ? "Tap for Music"
+                      : "Music Off"}
+            </small>
+          </button>
+        </>
+    );
+  }
+
+  export default function App() {
+    return (
+        <main>
+          <BackgroundMusic/>
+          <DrumCursorWithNotes/>
+          <Navbar/>
+          <Hero/>
+          <About/>
+          <Events/>
+          <Team/>
+          <Join/>
+          <Footer/>
+        </main>
+    );
+  }
+
