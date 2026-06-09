@@ -3145,3 +3145,31 @@ a,
           0 14px 32px rgba(216, 155, 82, 0.26),
           0 0 20px rgba(240, 207, 140, 0.14);
 }
+
+/* CONTACT FORM STATUS MESSAGE */
+
+.form-success-message,
+.form-error-message {
+  margin: 18px 0 0;
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.form-success-message {
+  color: var(--accent-3);
+  background: rgba(240, 207, 140, 0.08);
+  border: 1px solid rgba(240, 207, 140, 0.22);
+}
+
+.form-error-message {
+  color: #ffb4b4;
+  background: rgba(255, 80, 80, 0.08);
+  border: 1px solid rgba(255, 80, 80, 0.22);
+}
+
+.contact-clean-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

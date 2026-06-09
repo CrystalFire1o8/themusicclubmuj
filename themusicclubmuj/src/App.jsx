@@ -1563,6 +1563,39 @@ function Team() {
 }
 
 function Join() {
+  const [formStatus, setFormStatus] = useState("idle");
+
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setFormStatus("submitting");
+
+    try {
+      const response = await fetch(
+          "https://formsubmit.co/ajax/themusicclub.muj@gmail.com",
+          {
+            method: "POST",
+            body: formData,
+            headers: {
+              Accept: "application/json",
+            },
+          }
+      );
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      form.reset();
+      setFormStatus("success");
+    } catch {
+      setFormStatus("error");
+    }
+  };
+
   return (
       <section id="join" className="section join-section">
         <SectionTitle
@@ -1574,8 +1607,7 @@ function Join() {
         <div className="contact-clean-grid">
           <form
               className="join-form contact-clean-form"
-              action="https://formsubmit.co/themusicclub.muj@gmail.com"
-              method="POST"
+              onSubmit={handleContactSubmit}
           >
             <input
                 type="hidden"
@@ -1620,9 +1652,27 @@ function Join() {
                 required
             />
 
-            <button type="submit">
-              Send Message <Send size={18} />
+            <button type="submit" disabled={formStatus === "submitting"}>
+              {formStatus === "submitting" ? (
+                  "Sending..."
+              ) : (
+                  <>
+                    Send Message <Send size={18} />
+                  </>
+              )}
             </button>
+
+            {formStatus === "success" && (
+                <p className="form-success-message">
+                  Your message has been submitted successfully. We’ll get back to you soon.
+                </p>
+            )}
+
+            {formStatus === "error" && (
+                <p className="form-error-message">
+                  Something went wrong. Please try again.
+                </p>
+            )}
           </form>
         </div>
       </section>
