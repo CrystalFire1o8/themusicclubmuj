@@ -23,6 +23,11 @@ export const coreMembersByEmail = {
         name: "Agrima Dwivedi",
         role: "Head of Promotions",
     },
+
+    "divyansh.dk.kaushal@gmail.com": {
+    name: "Divyansh Kaushal",
+        role: "Head of Public Relations",
+},
 };
 
 export function getCoreProfile(user) {
