@@ -1,4 +1,6 @@
+import CoreAdmin from "./CoreAdmin";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   CalendarDays,
@@ -575,8 +577,50 @@ function SectionTitle({ eyebrow, title, text }) {
   );
 }
 
+function LoginChoiceModal({ onClose }) {
+  const goToCoreLogin = () => {
+    window.location.href = "/core";
+  };
+
+  return createPortal(
+      <motion.div
+          className="login-choice-backdrop"
+          onClick={onClose}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+      >
+        <motion.div
+            className="login-choice-card"
+            onClick={(event) => event.stopPropagation()}
+            initial={{ opacity: 0, y: 28, scale: 0.94 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 28, scale: 0.94 }}
+            transition={{ duration: 0.3 }}
+        >
+          <button className="login-choice-close" onClick={onClose}>
+            <X size={22} />
+          </button>
+
+          <p className="eyebrow">The Music Club</p>
+          <h2>Login Portal</h2>
+          <p>
+            Choose your login type to continue to the internal TMC portal.
+          </p>
+
+          <div className="login-choice-actions">
+            <button onClick={goToCoreLogin}>Admin Login</button>
+            <button onClick={goToCoreLogin}>Core Member Login</button>
+          </div>
+        </motion.div>
+      </motion.div>,
+      document.body
+  );
+}
+
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
 
   const goTo = (section) => {
     if (section === "Events") {
@@ -605,10 +649,14 @@ function Navbar() {
 
       <nav className="desktop-nav">
         {navLinks.map((link) => (
-          <button key={link} onClick={() => goTo(link)}>
-            {link}
-          </button>
+            <button key={link} onClick={() => goTo(link)}>
+              {link}
+            </button>
         ))}
+
+        <button onClick={() => setLoginOpen(true)}>
+          Login
+        </button>
       </nav>
 
       <button className="menu-btn" onClick={() => setOpen((value) => !value)} aria-label="Menu">
@@ -628,7 +676,15 @@ function Navbar() {
                 {link}
               </button>
             ))}
+            <button onClick={() => setLoginOpen(true)}>
+              Login
+            </button>
           </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {loginOpen && (
+            <LoginChoiceModal onClose={() => setLoginOpen(false)} />
         )}
       </AnimatePresence>
     </header>
@@ -1930,19 +1986,25 @@ function Join() {
     );
   }
 
-  export default function App() {
-    return (
-        <main>
-          <BackgroundMusic/>
-          <DrumCursorWithNotes/>
-          <Navbar/>
-          <Hero/>
-          <About/>
-          <Events/>
-          <Team/>
-          <Join/>
-          <Footer/>
-        </main>
-    );
+export default function App() {
+  const isCoreRoute = window.location.pathname === "/core";
+
+  if (isCoreRoute) {
+    return <CoreAdmin />;
   }
+
+  return (
+      <main>
+        <BackgroundMusic />
+        <DrumCursorWithNotes />
+        <Navbar />
+        <Hero />
+        <About />
+        <Events />
+        <Team />
+        <Join />
+        <Footer />
+      </main>
+  );
+}
 
