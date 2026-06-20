@@ -26,7 +26,7 @@ import {
     watchAuth,
 } from "./firebase";
 
-import { getCoreProfile } from "./coreMembers";
+import { getCoreProfile } from "./coreMembers.js";
 
 function formatDate(date) {
     const year = date.getFullYear();
