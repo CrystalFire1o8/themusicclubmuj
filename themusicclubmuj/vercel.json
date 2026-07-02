@@ -1,8 +1,15 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "has": [
+        {
+          "type": "host",
+          "value": "themusicclubmuj.vercel.app"
+        }
+      ],
+      "destination": "https://www.tmcmuj.studio/$1",
+      "permanent": true
     }
   ]
 }
